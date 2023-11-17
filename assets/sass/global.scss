@@ -1,0 +1,421 @@
+// elements
+$path_font: './fonts/';
+
+@font-face {
+  font-family: 'Geared Slab';
+  src: url('../fonts/GearedSlab-Extrabold.woff2') format('woff2'),
+    url('../fonts/GearedSlab-Extrabold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ristretto Slab Pro Md';
+  src: url('../fonts/RistrettoSlabPro-Medium.woff2') format('woff2'),
+    url('../fonts/RistrettoSlabPro-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geared Slab';
+  src: url('../fonts/GearedSlab-Thin.woff2') format('woff2'),
+    url('../fonts/GearedSlab-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Veneer';
+  src: url('../fonts/Veneer.woff2') format('woff2'),
+    url('../fonts/Veneer.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import "mixins/_mixins-master.scss";
+@import "mixins/_utilities.scss";
+@import "variables-site/_variables-site.scss";
+@import "_normalize.scss";
+@import "typography/_typography.scss";
+
+.text-upper {
+  text-transform: uppercase;
+}
+
+//--> Background color
+.v-dark,
+.v-light {
+  background-color: $bg-color;
+  color: $body-color;
+}
+
+.v-dark-head {
+  color: $body-color;
+}
+
+@media only screen and (max-width: 991px) {
+  .v-dark-head-mobile {
+    color: $body-color;
+  }
+}
+
+
+.background-main {
+
+  &,
+  .background-inner {
+    background-color: $bg-color;
+  }
+
+
+}
+
+.background-section {
+
+  &,
+  .background-inner {
+    background-color: $fill-green-white;
+  }
+}
+
+.background-theme {
+
+  &,
+  .background-inner {
+    background-color: $theme-color;
+  }
+}
+
+.background-reverse {
+  background-color: $heading-color;
+  color: $bg-color;
+}
+
+.theme-color {
+  color: $theme-color;
+}
+
+.heading-color {
+  color: $heading-color;
+}
+
+.body-color {
+  color: $body-color;
+}
+
+.background-transparent {
+  background-color: transparent;
+}
+
+.h-100-v {
+  height: 100vh;
+}
+
+.h-v-70 {
+  height: 70vh;
+}
+
+.h-v-80 {
+  height: 80vh;
+}
+
+.fill-primary {
+  color: $brand-primary;
+}
+
+.fill-brown-grey {
+  color: $fill-brown-grey;
+}
+.fill-olive-green {
+  color: $fill-olive-green;
+}
+.fill-rust-red {
+  color: $fill-rust-red;
+}
+.fill-aqua-green {
+  color: $fill-aqua-green;
+}
+.fill-pacific-blue {
+  color: $fill-pacific-blue;
+}
+.fill-cyan-green {
+  color: $fill-cyan-green;
+}
+.fill-green-white {
+  color: $fill-green-white;
+}
+.fill-metallic-silver {
+  color: $fill-metallic-silver;
+}
+.fill-light-mustard {
+  color: $fill-light-mustard;
+}
+
+.bg-brown-grey {
+  background-color: $fill-brown-grey;
+}
+.bg-olive-green {
+  background-color: $fill-olive-green;
+}
+.bg-rust-red {
+  background-color: $fill-rust-red;
+}
+.bg-aqua-green {
+  background-color: $fill-aqua-green;
+}
+.bg-pacific-blue {
+  background-color: $fill-pacific-blue;
+}
+.bg-cyan-green {
+  background-color: $fill-cyan-green;
+}
+.bg-green-white {
+  background-color: $fill-green-white;
+}
+.bg-metallic-silver {
+  background-color: $fill-metallic-silver;
+}
+.bg-light-mustard {
+  background-color: $fill-light-mustard;
+}
+
+.red-stroke {
+  -webkit-text-stroke: 1px $brand-primary !important;
+}
+.rust-red-stroke {
+  -webkit-text-stroke: 1px $fill-rust-red !important;
+}
+
+//--> Overlay color
+@include overlays(10);
+
+//---> Padding & Margin Section
+@include spacing_section;
+@include spacing_section(padding);
+@include dsn-container();
+
+.d-grid {
+  &:not(.dsn-isotope) {
+    display: grid;
+
+    &:not(.d-grid-no-space) {
+      grid-column-gap: 30px;
+      grid-row-gap: 30px;
+    }
+
+    &:not(.dsn-isotope):not(.align-items-center) {
+      align-items: stretch;
+    }
+  }
+
+
+  &.dsn-isotope,
+  &.dsn-flex {
+    display: flex;
+
+    @include media_991(min) {
+      margin-left: calc((var(--grid-gap, 30px) / 2) * -1);
+      margin-right: calc((var(--grid-gap, 30px) / 2) * -1);
+    }
+
+    >* {
+      margin-left: calc((var(--grid-gap, 30px) / 2));
+      margin-right: calc((var(--grid-gap, 30px) / 2));
+    }
+  }
+}
+
+@include grid-mix(2, 5);
+
+//-- Style --//
+
+//---> Margin Helper
+@include MarginPadding(20, 5, ".mt", margin-top);
+@include MarginPadding(20, 5, ".mb", margin-bottom);
+
+@include MarginPadding(10, 10, ".pt", padding-top);
+@include MarginPadding(10, 10, ".pb", padding-bottom);
+
+@include MarginPadding(10, 10, ".hv", height, vh);
+@include MarginPadding(10, 10, ".w", width, '%');
+@include MarginPadding(20, 5, ".h", height, '%');
+
+@include media_991(min) {
+  .pr-lg-100 {
+    padding-right: 100px;
+  }
+}
+
+@include media_991() {
+  .p-md-20 {
+    padding: 20px;
+  }
+
+}
+
+@include media_768() {
+  .d-sm-none {
+    display: none;
+  }
+
+  .mt-sm-section {
+    margin-top: $margin-padding;
+  }
+
+  .text-sm-left {
+    text-align: left;
+  }
+}
+
+.mr-15 {
+  margin-right: 15px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.ml-5 {
+  margin-left: 5px;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+@import "core/global/helper";
+//---> ajax
+@import "core/global/ajax";
+@import "core/global/grid";
+
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto
+}
+
+.d-none {
+  display: none !important;
+}
+
+.d-inline {
+  display: inline
+}
+
+.d-inline-block {
+  display: inline-block
+}
+
+.d-block {
+  display: block
+}
+
+.d-table {
+  display: table
+}
+
+.d-table-row {
+  display: table-row
+}
+
+.d-table-cell {
+  display: table-cell
+}
+
+.m-auto {
+  margin: auto
+}
+
+.mr-auto,
+.mx-auto {
+  margin-right: auto
+}
+
+.ml-auto,
+.mx-auto {
+  margin-left: auto
+}
+
+.fz-14 {
+  font-size: 14px;
+}
+
+.border-rdu:not(.dsn-btn) {
+  border-radius: 7px;
+}
+
+
+
+//-------------------- Parallax Image --------------------//
+@import "core/global/parallaxImage";
+
+.fancybox__container {
+  --fancybox-thumbs-border-radius: 50%;
+  --fancybox-thumbs-ratio: 1;
+
+  --fancybox-thumbs-width: 70px;
+  --fancybox-thumbs-height: 70px;
+
+  --fancybox-accent-color: var(--theme-color);
+
+  .fancybox__thumbs {
+    padding-bottom: 30px;
+  }
+
+}
+
+
+.fancybox__thumbs .carousel__slide:not(:last-child) {
+  margin-right: 10px;
+
+}
+
+[data-fancybox] {
+  cursor: pointer;
+}
+
+
+.over-hidden {
+  overflow: hidden;
+}
+
+p {
+  color: $body-color;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+.z-index-2 {
+  z-index: 2;
+}
+
+.box-shadow-image .bg-shadow:after,
+.dsn-box-shadow:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 20%;
+  background-image: linear-gradient(to top, var(--assistant-color), rgba(0, 0, 0, 0));
+}
